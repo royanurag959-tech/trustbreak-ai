@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    @apply bg-slate-950 text-slate-100 antialiased min-h-screen selection:bg-cyan-400 selection:text-slate-950;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+}
+
+/* High-Tech Cyberpunk & SOC Grid Backgrounds */
+.cyber-bg {
+  background-color: #030712;
+  background-image: 
+    radial-gradient(circle at 50% 0%, rgba(14, 165, 233, 0.12) 0%, transparent 60%),
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 100% 100%, 32px 32px, 32px 32px;
+}
+
+.cyber-grid {
+  background-size: 24px 24px;
+  background-image: 
+    linear-gradient(to right, rgba(56, 189, 248, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(56, 189, 248, 0.04) 1px, transparent 1px);
+}
+
+.cyber-dots {
+  background-image: radial-gradient(rgba(56, 189, 248, 0.12) 1px, transparent 0);
+  background-size: 20px 20px;
+}
+
+/* Neon Glow Utilities */
+.glow-cyan {
+  box-shadow: 0 0 25px -4px rgba(6, 182, 212, 0.35);
+}
+
+.glow-rose {
+  box-shadow: 0 0 25px -4px rgba(244, 63, 94, 0.4);
+}
+
+.glow-emerald {
+  box-shadow: 0 0 25px -4px rgba(16, 185, 129, 0.35);
+}
+
+.glow-purple {
+  box-shadow: 0 0 25px -4px rgba(168, 85, 247, 0.35);
+}
+
+.glow-border {
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  box-shadow: inset 0 0 15px rgba(56, 189, 248, 0.05), 0 0 15px rgba(56, 189, 248, 0.1);
+}
+
+/* Glassmorphism Cyber Card */
+.cyber-card {
+  @apply bg-slate-900/70 border border-slate-800/80 rounded-2xl backdrop-blur-xl transition-all duration-300;
+}
+.cyber-card:hover {
+  @apply border-cyan-500/40 shadow-xl shadow-cyan-500/10 -translate-y-0.5;
+}
+
+/* Radar Scanline Effect */
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(1000%); }
+}
+
+.animate-scanline {
+  animation: scanline 8s linear infinite;
+}
+
+/* Custom terminal scrollbar */
+.terminal-scroll::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+.terminal-scroll::-webkit-scrollbar-track {
+  background: #030712;
+}
+.terminal-scroll::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 4px;
+}
+.terminal-scroll::-webkit-scrollbar-thumb:hover {
+  background: #0ea5e9;
+}
