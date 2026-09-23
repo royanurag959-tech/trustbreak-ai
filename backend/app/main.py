@@ -51,15 +51,27 @@ app.include_router(subscription_router)
 app.include_router(notification_router)
 app.include_router(admin_router)
 
-@app.get("/")
-def root():
-    return {
-        "platform": settings.PROJECT_NAME,
-        "tagline": settings.TAGLINE,
-        "status": "operational",
-        "notice": "Authorized Security Testing Only — All tests run in a controlled sandbox."
-    }
-
 @app.get("/api/health")
 def health():
     return {"status": "healthy"}
+
+# Serve Frontend SPA from frontend/dist
+import os
+from fastapi.staticfiles import StaticFiles
+from starlette.responses import FileResponse
+
+dist_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../frontend/dist"))
+assets_dir = os.path.join(dist_dir, "assets")
+
+if os.path.exists(assets_dir):
+    app.mount("/assets", StaticFiles(directory=assets_dir), name="assets")
+
+@app.get("/{full_path:path}")
+async def serve_spa(full_path: str):
+    file_path = os.path.join(dist_dir, full_path)
+    if os.path.exists(file_path) and os.path.isfile(file_path):
+        return FileResponse(file_path)
+    index_file = os.path.join(dist_dir, "index.html")
+    if os.path.exists(index_file):
+        return FileResponse(index_file)
+    return {"message": "TRUSTBREAK AI API Operational. Build frontend to view UI."}
