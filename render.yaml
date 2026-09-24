@@ -1,7 +1,7 @@
 services:
   - type: web
     name: trustbreak-ai
-    runtime: python
+    env: python
     buildCommand: "pip install -r backend/requirements.txt"
     startCommand: "cd backend && python -m uvicorn app.main:app --host 0.0.0.0 --port $PORT"
     plan: free
