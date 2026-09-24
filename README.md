@@ -6,6 +6,16 @@
 
 ---
 
+## 🌐 Live Cloud Deployment (24/7 Permanent)
+
+| **Live Production URL** | [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/royanurag959-tech/trustbreak-ai) |
+|---|---|
+| **URL:** [https://trustbreak-ai.onrender.com](https://trustbreak-ai.onrender.com) | **Status:** 🟢 Cloud Deployed & 24/7 Active |
+| **Demo Admin Email:** `admin@trustbreak.ai` | **Password:** `Admin@123456` |
+| **Compatibility:** Any Phone, Tablet & Laptop | **Database:** PostgreSQL Ready (Cloud Native) |
+
+---
+
 ## 1. Executive Overview
 
 **TRUSTBREAK AI** is an enterprise-grade AI Agent Security Testing and Validation Platform. It empowers organizations, developers, and red teams to thoroughly test, monitor, and certify AI agents inside an isolated simulation environment **before** granting them access to production tools, customer data, APIs, or business-critical workflows.
